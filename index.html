@@ -21,6 +21,10 @@
 				border-radius: 5px;
 				opacity: 0.7;
 			}
+			.tile:hover{
+				cursor: pointer;
+				border-radius: 10px;
+			}
 			#score{
 				position: absolute;
 				top: calc(100% - 30px);
@@ -63,7 +67,7 @@
 			var comming = 0;
 			var rev_speed = 4;
 			var score = 0;
-			var time = 200*rev_speed;
+			var time = height*rev_speed/3;
 			$(".tile").css("width", b+'px');
 			if(height > width)
 			{
@@ -132,11 +136,6 @@
 					}
 					else{
 						dead = 1;
-						$("#tile"+tile_no).detach();
-						tile_no++;
-						$("#tile"+tile_no).detach();
-						tile_no++;
-						$("#tile"+tile_no+2).detach();
 						$("#canvas").css("opacity", "0.4");
 						$("#over").css("visibility", "visible");
 						clearInterval(Interval);
@@ -144,14 +143,6 @@
 					}
 				},rev_speed);
 				
-			}
-			function change_level()
-			{	
-				if(rev_speed>3)
-				{
-					rev_speed-=1;
-					time = 200*rev_speed;
-				}
 			}
 			function write(data){
 				$("#score").text(data);
