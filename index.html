@@ -116,13 +116,14 @@
 					$("#tile"+tile_no).detach();
 					return;
 				}
+				setTimeout(function(){
+					comming = 0;
+				},time);
 				}
 				$("#tile"+tile_no).css("left", left+"px").css("top", "-200px").css('background-color', 'rgb('+r*300+', '+g*300+', '+bl*300+')');
 				$(".tile").css("width", b+'px').css("height", height/3+"px");
 				move_tile(tile_no, left);
-				setTimeout(function(){
-					comming = 0;
-				},time);
+				
 			}
 			function move_tile(tile_no, left){
 				var top = -200;
